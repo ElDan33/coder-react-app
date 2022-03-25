@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import './App.css';
+import ContactUs from './components/pageSections/ContactUs';
+import Products from './components/pageSections/Products';
+import AboutUs from './components/pageSections/AboutUs';
+import Home from './components/pageSections/Home';
+import NavBar from './components/NavBar';
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code>Under construct. Dante Carrizo's eCommerce app soon...</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://www.coderhouse.com/online/reactjs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          👨‍💻🚀 Learning React from CODERHOUSE 🚀👨‍💻
-        </a>
-      </header>
+        <NavBar/>
+        <Router>
+          <Routes>
+            <Route path="/ContactUs" element={<ContactUs />}></Route>
+            <Route path="/Products" element={<Products />}></Route>
+            <Route path="/AboutUs" element={<AboutUs />}></Route>
+            <Route path="/" element={<Home />}></Route>
+          </Routes>
+        </Router>
     </div>
   );
 }
