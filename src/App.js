@@ -14,15 +14,16 @@ import NavBar from './components/NavBar';
 
 function App() {
 
+
   return (
-    <div className="App">
+    <div className="">
         <NavBar/>
         <Router>
           <Routes>
             <Route path="/ContactUs" element={<ContactUs />}></Route>
             <Route path="/Products" element={<Products />}></Route>
-            <Route path="/AboutUs" element={<AboutUs />}></Route>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/AboutUs" element={<AboutUs />} ></Route>
+            <Route path="/" element={<Home />} ></Route>
           </Routes>
         </Router>
     </div>

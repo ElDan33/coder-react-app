@@ -1,17 +1,23 @@
 import React from "react";
 import { Fragment } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { MenuIcon, XIcon, ShoppingCartIcon } from '@heroicons/react/outline';
+import { Disclosure } from '@headlessui/react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import ModeToggle from "./ModeToggle";
+import CartWidget from "./CartWidget";
 
 
 export default function NavBar({element}) {
 
     const navigation = [
       { name: 'Home', href: '/', current: true },
-      { name: 'AboutUs', href: '/AboutUs', current: false },
+      { name: 'About Us', href: '/AboutUs', current: false },
       { name: 'Products', href: '/Products', current: false },
-      { name: 'ContactUs', href: '/ContactUs', current: false },
+      { name: 'Contact Us', href: '/ContactUs', current: false },
     ]
+
+    function backToHome(){
+      window.location.href = "/";
+    }
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
@@ -36,16 +42,18 @@ export default function NavBar({element}) {
                   </div>
                   <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex-shrink-0 flex items-center">
-                        <h3
+                        <button
+                            onClick = {backToHome}
                             className="block lg:hidden h-8 w-30 text-white text-lg cursor-pointer border-solid border-2 border-sky-500 rounded-md mr-2 bg-gray-700 text-shadow"
                         >
                             GreenShop
-                        </h3>
-                        <h3
+                        </button>
+                        <button
+                            onClick = {backToHome}
                             className="hidden lg:block h-8 w-30 text-white text-lg cursor-pointer border-solid border-2 border-sky-500 rounded-md mr-80 bg-gray-700 text-shadow"
                         >
                             GreenShop
-                        </h3>
+                        </button>
                     </div>
                     <div className="hidden sm:block sm:ml-6">
                       <div className="flex space-x-4">
@@ -64,6 +72,13 @@ export default function NavBar({element}) {
                         ))}
                       </div>
                     </div>
+                  </div>
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    {/* Light Mode and Dark Mode Toggle */}
+                    <ModeToggle/>
+
+                    {/* Cart dropdown */}
+                    <CartWidget classNames={classNames}/>
                   </div>
                 </div>
               </div>
