@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemCount from './ItemCount';
 
 const ItemListContainer = () => {
 
@@ -7,23 +8,18 @@ const ItemListContainer = () => {
     const seeds = ["Flax Seeds", "Sesame Seeds", "Chia Seeds", "Sunflower Seeds", "Poppy Seeds"];
 
 
-    const clickHandler = (e) => {
-        e.target.style.color = "red";
-        alert(e.target.innerHTML);
-    }
-
     return (
         <div className="w-screen ml-10">
             <h2 className="mt-10 underline">Catalog</h2>
-            <ul>
+            <ul className="">
                 <h3 className="underline">Flours</h3>
-                {flours.map((item,i) => <li onClick={clickHandler} className="list-disc ml-10" key={i}>{item}</li>)}
-
+                {flours.map((item,i) => <li  className="" key={i}>{item}<ItemCount itemStock={10} itemName={item} key={i}/></li>)}
+                
                 <h3 className="underline">Nuts</h3>
-                {nuts.map((item,i) => <li onClick={clickHandler} className="list-disc ml-10" key={i}>{item}</li>)}
+                {nuts.map((item,i) => <li  className="" key={i}>{item}<ItemCount itemStock={10} itemName={item} key={i}/></li>)}
 
                 <h3 className="underline">Seeds</h3>
-                {seeds.map((item,i) => <li onClick={clickHandler} className="list-disc ml-10" key={i}>{item}</li>)}
+                {seeds.map((item,i) => <li  className="" key={i}>{item}<ItemCount itemStock={10} itemName={item} key={i}/></li>)}
             </ul>
         </div>
         
