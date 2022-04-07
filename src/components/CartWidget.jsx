@@ -4,10 +4,7 @@ import React, { Fragment} from 'react'
 import CartQuantity from './CartQuantity'
 
 
-
-
 const CartWidget = ({classNames}) => {
-    
 
     return (
         <Menu as="div" className="ml-3 relative">
@@ -15,7 +12,7 @@ const CartWidget = ({classNames}) => {
                         <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 p-1 focus:ring-offset-2 p-1 focus:ring-offset-gray-800 focus:ring-white">
                             <span className="sr-only">Shopping cart</span>
                             <ShoppingCartIcon className="h-6 w-6 text-gray-400 hover:text-gray-200" aria-hidden="true"/>
-                            <CartQuantity/>
+                            <CartQuantity />
                         </Menu.Button>
                       </div>
                       <Transition
