@@ -5,7 +5,7 @@ const ItemCount = ({count, stockToNumber, countIncrease, countDecrease, addCartH
 
 
     return (
-            <div className="flex-col text-center w-full border-2 bg-gray-200 p-4">
+            <div className="flex-col text-center w-full border-2 bg-amber-50 p-4">
                 <div className="flex justify-between mb-2 border-2 border-solid border-gray-300 rounded border-b-gray-400 border-r-gray-400 bg-white">
                     <button onClick={countDecrease} className="text-cyan-500 mx-3">-</button>
                     <div className="text-white text-shadow-h1 ">

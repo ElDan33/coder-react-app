@@ -227,4 +227,15 @@ const productsList = [
     
 ]
 
+export const singleProduct = {
+    id: 25,
+        category: "Miscellaneous",
+        product: "Sponge Puddings",
+        price: 410.20,
+        presentation: ["500g"],
+        stock:"20 units",
+        image: "https://img-global.cpcdn.com/recipes/5d49e9f5f779f838/1200x630cq70/photo.jpg",
+        description: "A delicious wholemeal pudding with nuts, sweetened with muscovado sugar and stevia, banana flavor. Perfect for your snacks and breakfasts, and low in calories."
+}
+
 export default productsList
