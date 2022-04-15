@@ -9,24 +9,29 @@ const ModeToggle = () => {
     const label = document.querySelector(".label");
     const ball = document.querySelector(".ball");
 
-
+    const modeHandler = ()=>{
+        appHeader.classList.toggle("App-header-dark");
+        label.classList.toggle("label-dark");
+        ball.classList.toggle("ball-dark");
+    }
 
     return (
-        <>
-            <div>
-                <input onClick={()=>{appHeader.classList.toggle("App-header-dark");
-                                        label.classList.toggle("label-dark");
-                                        ball.classList.toggle("ball-dark");
-                                    }} 
-                    type="checkbox" className="checkbox" id="checkbox"
+        <div>
+                <input 
+                    onClick={modeHandler} 
+                    type="checkbox" 
+                    className="checkbox"
+                    id="checkbox"
                 />
-                <label htmlFor="checkbox" className="label">
+                <label 
+                    htmlFor="checkbox" 
+                    className="label"
+                >
                     <FontAwesomeIcon icon={faMoon} />
                     <FontAwesomeIcon icon={faSun} />
                     <div className="ball"/>
                 </label>
-            </div>
-        </>
+        </div>
     )
 }
 

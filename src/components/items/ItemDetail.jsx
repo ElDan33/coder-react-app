@@ -71,16 +71,16 @@ const ItemDetail = ({item}) => {
     }
 
     return (
-        <div>
-            <div className="flex flex-row  mt-12 w-screen">
-                <div className="bg-orange-200 ml-24 mr-12 w-1/2 h-full border border-2-solid rounded">
-                    <img src={item.image} alt={item.product} className="w-full"></img>
+        <div className="bg-orange-100">
+            <div className="flex flex-row  justify-evenly w-screen">
+                <div className="bg-orange-200  w-1/2 h-2/3 border border-2-solid rounded-3xl">
+                    <img src={item.image} alt={item.product} className="w-full h-96 border border-2-solid rounded-t-3xl"></img>
                     
-                    <h3 className="mt-6 mb-12 underline text-center text-white text-shadow-h1 text-lg">Description</h3>
-                    <p className="mb-12 text-center text-white text-shadow-h1 text-lg">{item.description}</p>
+                    <h3 className="mt-6 p-2 mb-6 underline text-center text-white text-shadow-h1 text-lg">Description</h3>
+                    <p className="mb-12 p-2 text-center text-white text-shadow-h1 text-lg">{item.description}</p>
 
                 </div>
-                <div className="bg-orange-200 flex flex-col justify-between w-80 border border-2-solid rounded-md ">
+                <div className="bg-orange-200 text-center flex flex-col justify-between w-1/3 h-full border border-2-solid rounded-3xl ">
                     <div className="flex flex-col text-xl p-2 mt-12">
                         <h2 className="pb-2 text-white text-shadow-h1"><span className="font-bold">Product: </span>{item.product}</h2>
                         <h3 className="pb-6 text-white text-shadow-h1"><span className="font-bold">Category: </span>{item.category}</h3>
@@ -91,7 +91,7 @@ const ItemDetail = ({item}) => {
                                 {item.presentation.map((e,i)=><option key={i} className="text-green-400" value={e}>{e}</option>)}
                             </select>
                         </div>
-                        <div className="text-3xl mt-32">  
+                        <div className="text-3xl mt-20 mb-12">  
                             <span className="font-bold text-white text-shadow-h1">Price: </span> <span className="text-green-400 text-shadow-h1">$ {totalPrice}</span>
                         </div>
                     </div>
@@ -108,11 +108,11 @@ const ItemDetail = ({item}) => {
                     </div>
                 </div>
             </div>
-            
-            <div className="mt-36">
-                <Link to="/Products" className="w-full text-center px-12 py-2 font-bold border border-2-solid rounded">Go back</Link>
+            <div className="flex mt-36 w-full text-white text-shadow-h1 bg-orange-50">                
+                <Link to="/" className="bg-orange-200 w-full text-center px-12 py-2 font-bold border border-4-solid border-orange-400 rounded">
+                    Go back
+                </Link>
             </div>
-            
         </div>
     )
 }

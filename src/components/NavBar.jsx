@@ -4,20 +4,18 @@ import { Disclosure } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import ModeToggle from "./ModeToggle";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
+import CategoriesDropDown from "./CategoriesDropDown";
 
 
-export default function NavBar({element}) {
+
+export default function NavBar() {
 
     const navigation = [
-      { name: 'Home', href: '/', current: true },
-      { name: 'About Us', href: '/AboutUs', current: false },
-      { name: 'Products', href: '/Products', current: false },
+      { name: 'Products', href: '/', current: false },
       { name: 'Contact Us', href: '/ContactUs', current: false },
     ]
 
-    function backToHome(){
-      window.location.href = "/";
-    }
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
@@ -42,34 +40,48 @@ export default function NavBar({element}) {
                   </div>
                   <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex-shrink-0 flex items-center">
-                        <button
-                            onClick = {backToHome}
+                        <Link
+                            to={`/`}
                             className="block lg:hidden h-8 w-30 text-white text-lg cursor-pointer border-solid border-2 border-sky-500 rounded-md mr-2 bg-gray-700 text-shadow"
                         >
                             GreenShop
-                        </button>
-                        <button
-                            onClick = {backToHome}
+                        </Link>
+                        <Link
+                            to={`/`}
                             className="hidden lg:block h-8 w-30 text-white text-lg cursor-pointer border-solid border-2 border-sky-500 rounded-md mr-80 bg-gray-700 text-shadow"
                         >
                             GreenShop
-                        </button>
+                        </Link>
                     </div>
                     <div className="hidden sm:block sm:ml-6">
                       <div className="flex space-x-4">
-                        {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
+                        
+                        <Link
+                              key={navigation[0].name}
+                              to={`${navigation[0].href}`}
+                              className={classNames(
+                                navigation[0].current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                'px-3 py-2 rounded-md text-md font-medium'
+                              )}
+                              aria-current={navigation[0].current ? 'page' : undefined}
+                            >
+                              {navigation[0].name}
+                        </Link>
+                        
+                        <CategoriesDropDown
+                          classNames={classNames}
+                        />
+                        <Link
+                            key={navigation[1].name}
+                            to={`${navigation[1].href}`}
                             className={classNames(
-                              item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                              'px-3 py-2 rounded-md text-sm font-medium'
+                              navigation[1].current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                              'px-3 py-2 rounded-md text-md font-medium'
                             )}
-                            aria-current={item.current ? 'page' : undefined}
+                            aria-current={navigation[1].current ? 'page' : undefined}
                           >
-                            {item.name}
-                          </a>
-                        ))}
+                            {navigation[1].name}
+                          </Link>
                       </div>
                     </div>
                   </div>
@@ -85,20 +97,37 @@ export default function NavBar({element}) {
 
               <Disclosure.Panel className="sm:hidden">
                 <div className="px-2 pt-2 pb-3 space-y-1">
-                  {navigation.map((item) => (
                     <Disclosure.Button
-                      key={item.name}
+                      key={navigation[0].name}
                       as="a"
-                      href={item.href}
+                      href={navigation[0].href}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                        'block px-3 py-2 rounded-md text-base font-medium'
+                        navigation[0].current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        'block px-3 py-2 px-5 rounded-md text-base font-medium'
                       )}
-                      aria-current={item.current ? 'page' : undefined}
+                      aria-current={navigation[0].current ? 'page' : undefined}
                     >
-                      {item.name}
+                      {navigation[0].name}
                     </Disclosure.Button>
-                  ))}
+
+                    <Disclosure.Button
+                      key={navigation[1].name}
+                      as="a"
+                      href={navigation[1].href}
+                      className={classNames(
+                        navigation[1].current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        'block px-3 py-2 px-5 rounded-md text-base font-medium'
+                      )}
+                      aria-current={navigation[1].current ? 'page' : undefined}
+                    >
+                      {navigation[1].name}
+                    </Disclosure.Button>
+                    
+                    <Disclosure.Button className="block w-full hover:bg-gray-700 hover:rounded-md text-left ">
+                      <CategoriesDropDown
+                            classNames={classNames}
+                      />
+                    </Disclosure.Button>
                 </div>
               </Disclosure.Panel>
             </>

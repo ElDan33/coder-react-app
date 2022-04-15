@@ -1,13 +1,12 @@
 import React from 'react'
 import ItemListContainer from '../items/ItemListContainer'
 
-const Products = () => {
+const ProductsContainer = () => {
   return (
     <div className="App-header">
-      <h1 className="font-bold">Products</h1>
       <ItemListContainer/>
     </div>
   )
 }
 
-export default Products
+export default ProductsContainer
